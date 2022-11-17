@@ -1,22 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package finalprojectdajfhaslf;
 
-/**
- *
- * @author suves
- */
-public class FinalProjectdajfhaslf {
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("SUVESH WAS HERE");
-        System.out.println("another person was here");
-    }
+public class FinalProjectdajfhaslf {
     
+    //default parameters:
+    /*
+    grid = 10x10
+    intial alive = 40%
+    */
+    public static void main(String[] args) {
+        Block theBlock = new Block();
+        ArrayList<ArrayList<Block>> theGrid = theBlock.initGrid(); //grid setup
+        int generation = 0;
+//        System.out.println("before0: "+theGrid.get(0).get(0).isAlive());
+//        System.out.println("before10: "+theGrid.get(1).get(0).isAlive());
+//        System.out.println("before1: "+theGrid.get(1).get(1).isAlive());
+        //start the simulation
+        for (int i=0;i<20;i++){
+        //methods: update neighbors alive
+        theBlock.updateNeighborsAlive(theGrid);
+        //update alive
+        theBlock.updateAlive(theGrid);
+        generation+=1;
+//            try {
+//                Thread.sleep(50);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(FinalProjectdajfhaslf.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+        }
+        System.out.println(generation);
+//        System.out.println("after0: "+theGrid.get(0).get(0).isAlive());
+//        System.out.println("before10: "+theGrid.get(1).get(0).isAlive());
+//        System.out.println("after1: "+theGrid.get(1).get(1).isAlive());
+    }
+    /*
+    scanner for initGrid, checkNeighbors
+    */
 }
+
